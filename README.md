@@ -22,3 +22,26 @@ That article gives a mostly good description of steps needed to set up a spreads
 * One place I left a String object in place was the response string coming from the google site. This makes sense as it is of unknown length at compile time. 
   The concatenation for a single Serial.print() statement was removed and replaced with two Serial.print() statements.
   
+## Correction to Script
+
+As stated in the first section the iotdesignpro article gives mostly good information. One error to the script needed to be corrected. 
+
+Original Script contained:
+
+~~~~
+...
+var sensor = Number(e.parameter.sensor);
+var date = Number(e.parameter.date);
+...
+~~~~
+
+To work with the timestamp sent this needed to be changed to:
+
+~~~~
+...
+var sensor = Number(e.parameter.sensor);
+var date = String(e.parameter.date);
+...
+~~~~
+
+Note that the original script worked fine with the manual test of the script but needed to be fixed for the actual timestamp to work.
